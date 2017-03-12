@@ -10,9 +10,9 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-// MARK: - FavoritesTableViewController: UITableViewController
+// MARK: - FavoritesViewController: UIViewController
 
-class FavoritesTableViewController: UITableViewController {
+class FavoritesViewController: UIViewController {
   
   // MARK: Properties
   
@@ -36,11 +36,12 @@ class FavoritesTableViewController: UITableViewController {
       target: self,
       action: #selector(logout))
     
-    //setupTableCells()
+    setupTableCells()
   }
   
   
   private func setupTableCells() {
+    
     movies.asObservable()
       .bindTo(favoritesTableView
         .rx
@@ -56,7 +57,7 @@ class FavoritesTableViewController: UITableViewController {
     
     super.viewWillAppear(animated)
     
-    //loadFavoriteMoviesFromServer()
+    loadFavoriteMoviesFromServer()
   }
   
   
